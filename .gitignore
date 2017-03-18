@@ -1,6 +1,8 @@
 *.class
+scripts/
 *.log
-
+.idea/
+.DS_Store
 # sbt specific
 .cache
 .history
