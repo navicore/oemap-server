@@ -1,0 +1,8 @@
+http://localhost:8080
+
+#GET /maps/map/1
+
+GET /maps/map
+
+#GET /maps/person/1
+

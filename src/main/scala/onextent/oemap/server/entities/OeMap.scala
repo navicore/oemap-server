@@ -1,10 +1,34 @@
 package onextent.oemap.server.entities
 
-trait IdAble {val id: String}
+import java.util.UUID
 
-case class Person(id: String, name: String, description: String) extends IdAble
+trait IdAble { val id: UUID }
 
-case class OeMap(id: String, ownerId: String, title: String, description: String) extends IdAble
 
-case class Membership(id: String, memberId: String, mapId: String, description: String, role: String) extends IdAble
+case class Person(id: UUID, name: String, description: String) extends IdAble
+
+
+case class OeMap(id: UUID,
+                 ownerId: UUID,
+                 title: String,
+                 description: String)
+    extends IdAble
+
+
+case class Membership(id: UUID,
+                      personId: UUID,
+                      mapId: UUID,
+                      description: String,
+                      role: String)
+    extends IdAble
+
+
+case class Location(id: UUID,
+                    personId: UUID,
+                    mapId: UUID,
+                    description: String,
+                    timestamp: Long,
+                    lat: Double,
+                    lon: Double)
+    extends IdAble
 

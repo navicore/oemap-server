@@ -1,5 +1,7 @@
 package onextent.oemap.server.http
 
+import java.util.UUID
+
 import onextent.oemap.server.entities.IdAble
 
 import scala.concurrent.{ExecutionContext, Future}
@@ -8,7 +10,7 @@ class Service[T <: IdAble](implicit val executionContext: ExecutionContext) {
 
   var maps = Vector.empty[T]
 
-  def createMap(map: T): Future[Option[String]] =
+  def create(map: T): Future[Option[UUID]] =
     Future {
       maps.find(_.id == map.id) match {
         case Some(_) => None // Conflict! id is already taken
@@ -19,12 +21,12 @@ class Service[T <: IdAble](implicit val executionContext: ExecutionContext) {
     }
 
 
-  def getMap(id: String): Future[Option[T]] =
+  def get(id: UUID): Future[Option[T]] =
     Future {
       maps.find(_.id == id)
     }
 
-  def deleteMap(id: String): Future[Unit] =
+  def delete(id: UUID): Future[Unit] =
     Future {
       maps = maps.filterNot(_.id == id)
     }
