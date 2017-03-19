@@ -8,27 +8,27 @@ import scala.concurrent.{ExecutionContext, Future}
 
 class Service[T <: IdAble](implicit val executionContext: ExecutionContext) {
 
-  var maps = Vector.empty[T]
+  var entries = Vector.empty[T]
 
-  def create(map: T): Future[Option[UUID]] =
+  def create(entry: T): Future[Option[UUID]] =
     Future {
-      maps.find(_.id == map.id) match {
+      entries.find(_.id == entry.id) match {
         case Some(_) => None // Conflict! id is already taken
         case None =>
-          maps = maps :+ map
-          Some(map.id)
+          entries = entries :+ entry
+          Some(entry.id)
       }
     }
 
 
   def get(id: UUID): Future[Option[T]] =
     Future {
-      maps.find(_.id == id)
+      entries.find(_.id == id)
     }
 
   def delete(id: UUID): Future[Unit] =
     Future {
-      maps = maps.filterNot(_.id == id)
+      entries = entries.filterNot(_.id == id)
     }
 }
 

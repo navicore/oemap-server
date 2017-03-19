@@ -3,6 +3,7 @@ package onextent.oemap.server
 import akka.http.scaladsl.server.Route
 import onextent.oemap.server.entities.{Location, Membership, OeMap, Person}
 import onextent.oemap.server.http.JsonResource
+import onextent.oemap.server.services.{LocationService, MapService, MembershipService, PersonService}
 
 trait MapsResource extends JsonResource {
 

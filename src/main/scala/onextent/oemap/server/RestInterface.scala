@@ -1,6 +1,7 @@
 package onextent.oemap.server
 
 import akka.http.scaladsl.server.Route
+import onextent.oemap.server.services.{LocationService, MapService, MembershipService, PersonService}
 
 import scala.concurrent.ExecutionContext
 

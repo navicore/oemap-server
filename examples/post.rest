@@ -1,10 +1,18 @@
 http://localhost:8080
 
 # POST /maps/map
-#
 # {"id": "48b57-7b40-48fa-bc3f-826d18c91900", "title": "MyMap", "ownerId": "1", "description": "it is"}
-#
-POST /maps/person
 
-{"id": "19276BE1-6608-4CDE-B3D0-C583B84D97D7", "name": "Ed S", "description": "I am "}
+
+# POST /maps/person
+# {
+#     "id": "19276BE1-6608-4CDE-B3D0-C583B84D97D7",
+#     "name": "Ed S",
+#     "description": "I am ",
+#     "created": "2017-03-19T17:02:01Z"
+# }
+
+
+
+GET /maps/person/19276BE1-6608-4CDE-B3D0-C583B84D97D7
 
