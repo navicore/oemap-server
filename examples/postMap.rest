@@ -1,0 +1,6 @@
+http://localhost:8080
+
+POST /maps
+
+{"id": "2", "title": "MyMap", "ownerId": "1", "description": "it is"}
+
